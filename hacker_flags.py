@@ -10,7 +10,7 @@ def usage():
         "Options:\n"
         "  -h, --help\t\t\tDisplay this help message\n"
         "  -d, --default-colors\t\tUse default colors\n"
-        "  -c, --chunk-length\t\tSet chunk length"
+        "  -c, --chunk-length 3\t\tSet chunk length"
     )
     exit()
 
@@ -23,11 +23,27 @@ def main():
         elif second_char != "-":  # single letter flags
             if second_char == "h":
                 usage()
+            elif second_char == "d":
+                hacker.use_default_colors = True
+            elif second_char == "c":
+                try:
+                    hacker.chunk_length = int(sys.argv[2])
+                except ValueError:
+                    print("Invalid chunk length")
+                    exit()
+                except IndexError:
+                    print("Chunk length not specified")
+                    exit()
+                if hacker.chunk_length < 1:
+                    print("Chunk length must be greater than 0")
+                    exit()
         elif second_char == "-":  # word flags
             flag_1 = sys.argv[1][2:].lower()
             if flag_1 == "help":
                 usage()
-            elif flag_1 == "":
+            elif flag_1 == "default-colors":
+                pass
+            elif flag_1 == "chunk-length":
                 pass
     else:
         filename = "code.txt"
