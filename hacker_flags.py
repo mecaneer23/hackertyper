@@ -5,16 +5,13 @@ import hacker
 
 
 def usage():
-    usage_string = (
+    print(
         f"Usage: {sys.argv[0]} [options] [file]\n"
         "Options:\n"
         "  -h, --help\t\t\tDisplay this help message\n"
+        "  -d, --default-colors\t\tUse default colors\n"
+        "  -c, --chunk-length\t\tSet chunk length"
     )
-    # black/green or default
-    # chunk length
-    # word list (file)
-
-    print(usage_string)
     exit()
 
 
