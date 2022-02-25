@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from ast import Index
 import curses, sys
 
 
