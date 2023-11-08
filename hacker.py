@@ -9,7 +9,6 @@ def main(stdscr, src_file, chunk_len):
     curses.use_default_colors()
     curses.init_pair(1, curses.COLOR_GREEN, -1)
     stdscr.scrollok(True)
-    word_list = src_file.split(" ")
     word_list = [
         src_file[i : i + chunk_len] for i in range(0, len(src_file), chunk_len)
     ]
@@ -25,7 +24,10 @@ def main(stdscr, src_file, chunk_len):
         except curses.error:
             pass
         stdscr.refresh()
-        iterator = iterator + 1 if iterator < len(word_list) - 1 else 0
+        if iterator < len(word_list) - 1:
+            iterator += 1
+        else:
+            iterator = 0
     return iterator
 
 
