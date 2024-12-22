@@ -1,5 +1,7 @@
 # Hackertyper
 
+![Demo](hackertyper.gif)
+
 Classic hackertyper, but in the terminal.
 
 ## Running
